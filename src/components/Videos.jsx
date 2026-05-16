@@ -1,11 +1,20 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, use } from 'react';
 import { getVideos } from '../mockApi.js';
 
 function Videos(){
     const [videos, setVideos] = useState([])
+    const [loading, setLoading] = useState(true)
     useEffect(() => {
-        getVideos().then((data) => setVideos(data));
+        getVideos()
+        .then((data) => {
+            setVideos(data)
+            setLoading(false)
+        });
     }, []);
+
+    if (loading) {
+        return <p>Loading videos...</p>;
+    }
 
     return (
         <div className="videos-section">

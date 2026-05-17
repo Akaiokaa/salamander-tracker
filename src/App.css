@@ -1,1 +1,16 @@
 @import "tailwindcss";
+
+@theme {
+  --color-text: #222310;
+  --color-bg: #f9faf0;
+  --color-primary: #666f20;
+  --color-secondary: #dce17a;
+  --color-accent: #f7ff5c;
+}
+
+/* Set up base background and text colors globally */
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: system-ui, sans-serif;
+}
